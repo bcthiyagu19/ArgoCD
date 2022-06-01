@@ -1,0 +1,25 @@
+argo cd is a declarative continuous deployment tool that you can use to deploy your apps to your kubernetes cluster
+
+continuous deployment tool the way it actually works is you define all your applications manifests all your resources that you want to
+deploy in your kubernetes cluster you define all of them in a github repository and then argo cd will pull the changes or will pull the resource definition from github
+repository and it deploys the resources for you in your kubernetes cluster.
+
+argo cd are these five components so things might change in the future but as of now in the installed version we have 5 components
+
+the important one is the argo cd server which is the api server all the interactions that you do with orgo cd has to go through this api
+server it's like the kube api server for kubernetes and then we have the repo server the repository server
+so that's the one that communicates with your external github repository and then it maintains a cache of your github repository
+so whenever you do a change in your github repository it pulls every change and then find what has actually changed and
+what's the current state of the deployment and so on
+
+we have app controllers app controller component which is responsible for maintaining the state of the deployed
+resource in your kubernetes cluster.
+redis for caching and then dex server for AD & LDAP authentication. 
+
+so what is it you want to deploy take for example you're deploying a web
+application so probably you might create a deployment the deployment will
+create a replica set and then the replica set manages the
+parts and then you want to expose your web application as a service probably
+you need to set up ingress and so on so all these resources are related and
+orgo cd manages them as one single app in the orgo cd the way to
+interact with orgo cd
